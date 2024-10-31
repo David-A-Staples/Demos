@@ -18,7 +18,12 @@ function dieRoll(chosenDie) {
     answerText.style.opacity = '0';
     setTimeout(
         function() {
-            twentyDieImage.style.transform = 'rotate(360deg)';
+            // twentyDieImage.style.transform = 'rotate(360deg)';
+            if (twentyDieImage.style.transform !== 'rotate(360deg)') {
+                twentyDieImage.style.transform = 'rotate(360deg)';
+            } else {
+                twentyDieImage.style.transform = '';
+            };
         },
     ),
     setTimeout(
