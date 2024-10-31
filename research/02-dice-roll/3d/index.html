@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dice Roll Simulator</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="inner">
+            <div class="text">
+                Pick a die, then roll!
+            </div>
+            <div class="text answer" id="answer-text"></div>
+            <div class="nav">
+                <!-- <div>
+                    Select die:
+                </div> -->
+                <label for="dice" id="die-select">Select die:</label>
+                <select id="dice" name="dice">
+                    <option value="4-Sided">4-Sided</option>
+                    <option value="6-Sided">6-Sided</option>
+                    <option value="10-Sided">10-Sided</option>
+                    <option value="12-Sided">12-Sided</option>
+                    <option value="20-Sided">20-Sided</option>
+                </select>
+                <button class="roll-button" id="roll-button" onclick="dieRoll(document.getElementById('dice').value)">Roll</button>
+            </div>
+        </div>
+    </body>
+    <script src="js/script.js"></script>
+</html>

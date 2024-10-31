@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Number Guessing Game</title>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+    </head>
+    <div>
+        <b>Number Guessing Game</b>
+        <br><br>
+        Enter a number to guess (1-10): 
+        <input type="number" id="numberSelect" min="1" max="10">
+        <button onclick="numberCompare(document.getElementById('numberSelect').value)">Guess</button>
+        <br><br>
+        <span id="answer"></span>
+    </div>
+    <script>
+
+        var documentNumber = getRandomNumber(1, 10);
+        var numberAnswer = document.getElementById('answer');
+
+        function getRandomNumber(min, max) {
+            return Math.round(Math.random() * (max-min) + min);
+        };
+
+        function numberCompare(chosenNumber) {
+            
+            if (documentNumber == chosenNumber) {
+                numberAnswer.innerText = '';
+                numberAnswer.innerText += 'Correct!';
+            } else {
+                numberAnswer.innerText = '';
+                numberAnswer.innerText += 'Wrong number! Try again?';
+            }
+
+            console.log('Guess: ' + chosenNumber);
+
+        };
+
+        console.log('Random number: ' + documentNumber);
+
+    </script>
+</html>
