@@ -7,27 +7,46 @@
     </head>
     <body>
         <div class="inner">
-            <div class="text">
-                Pick a die, then roll!
+
+            <div></div>
+            
+            <div class="middle">
+                <div class="text">
+                    Pick a die, then roll!
+                </div>
+                <div class="dice-container">
+                    <div class="text answer" id="answer-text">?</div>
+                    <img src="images/four.svg" class="die four" id="four-die-image" aria-hidden="true">
+                    <img src="images/six.svg" class="die six active-die" id="six-die-image" aria-hidden="true">
+                    <img src="images/eight.svg" class="die eight" id="eight-die-image" aria-hidden="true">
+                    <img src="images/ten.svg" class="die ten" id="ten-die-image" aria-hidden="true">
+                    <img src="images/twelve.svg" class="die twelve" id="twelve-die-image" aria-hidden="true">
+                    <img src="images/twenty.svg" class="die twenty" id="twenty-die-image" aria-hidden="true">
+                </div>
             </div>
-            <div class="dice-container">
-                <div class="text answer" id="answer-text">?</div>
-                <img src="images/twenty.svg" class="die six" id="twenty-die-image" aria-hidden="true">
+            
+            <div class="nav-wrap">
+                <div class="history-wrap">
+                    <div class="history" style="max-height: 18px;" onclick="historyOpen()">
+                        History
+                        <div id="historyContainer">
+                        </div>
+                    </div>
+                </div>
+                <div class="nav">
+                    <label for="dice" id="die-select">Select die:</label>
+                    <select id="dice" name="dice">
+                        <option value="4-Sided">4-Sided</option>
+                        <option value="6-Sided" selected="selected">6-Sided</option>
+                        <option value="8-Sided">8-Sided</option>
+                        <option value="10-Sided">10-Sided</option>
+                        <option value="12-Sided">12-Sided</option>
+                        <option value="20-Sided">20-Sided</option>
+                    </select>
+                    <button class="roll-button" id="roll-button" onclick="dieRoll(document.getElementById('dice').value);">Roll</button>
+                </div>
             </div>
-            <div class="nav">
-                <!-- <div>
-                    Select die:
-                </div> -->
-                <label for="dice" id="die-select">Select die:</label>
-                <select id="dice" name="dice">
-                    <option value="4-Sided">4-Sided</option>
-                    <option value="6-Sided" selected="selected">6-Sided</option>
-                    <option value="10-Sided">10-Sided</option>
-                    <option value="12-Sided">12-Sided</option>
-                    <option value="20-Sided">20-Sided</option>
-                </select>
-                <button class="roll-button" id="roll-button" onclick="dieRoll(document.getElementById('dice').value)">Roll</button>
-            </div>
+
         </div>
     </body>
     <script src="js/script.js"></script>
@@ -36,5 +55,5 @@
 <!--
 Attribution
 
-Twenty sided die: https://www.vecteezy.com/free-vector/d20
+Twenty sided die image: https://www.vecteezy.com/free-vector/d20
 -->
