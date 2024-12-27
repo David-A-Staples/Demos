@@ -45,11 +45,6 @@ function dieRoll(chosenDie) {
     
     // Roll die image
     setTimeout(
-        // function() {
-        //     dice.forEach(function(dieImage) {
-        //         dieImage.style.scale = '1.2';
-        //     });
-        // }, 0,
         function() {
             dice.forEach(function(dieImage) {
                 // Set the duration of the die roll animation transition by changing the CSS variable
@@ -220,8 +215,9 @@ function getRandomNumberOneDecimal(min, max) {
     return parseFloat(random.toFixed(1));
 };
 
+// Scale the dice images on "roll" button press
 function dieScale() {
     dice.forEach(function(dieImage) {
-        dieImage.style.scale = '1.2';
+        dieImage.style.scale = '1.3';
     });
 };
