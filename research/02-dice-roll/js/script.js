@@ -30,17 +30,47 @@ function getRandomNumber(min, max) {
 function dieRoll(chosenDie) {
     answerText.style.opacity = '0';
 
+    // Get a random number with one decimal place, used as the base variable
+    var dieRollRandom = getRandomNumberOneDecimal(0.7, 1.4);
+    console.log(dieRollRandom + "s");
+
+    // Multiply the variable by 1000 to get milliseconds
+    var dieRollRandomMill = dieRollRandom * 1000;
+
+    // A delayed version of the variable
+    var dieRollRandomDelayed = dieRollRandomMill + 500;
+
+    // A version of the varable for CSS
+    var dieRollRandomSeconds = dieRollRandom + 's';
+    
     // Roll die image
     setTimeout(
+        // function() {
+        //     dice.forEach(function(dieImage) {
+        //         dieImage.style.scale = '1.2';
+        //     });
+        // }, 0,
         function() {
             dice.forEach(function(dieImage) {
-                if (dieImage.style.transform !== 'rotate(360deg)') {
-                    dieImage.style.transform = 'rotate(360deg)';
+                // Set the duration of the die roll animation transition by changing the CSS variable
+                document.documentElement.style.setProperty('--dieroll-duration', `${dieRollRandomSeconds}`);
+
+                // Rotate the die
+                if (dieImage.style.rotate !== '720deg') {
+                    dieImage.style.rotate = '720deg';
                 } else {
-                    dieImage.style.transform = '';
-                }
+                    dieImage.style.rotate = '';
+                };
+
+                // Scale the die
+                
+                setTimeout(
+                    function() {
+                        dieImage.style.scale = '1';
+                    }, 100,
+                );
             });
-        }, 0,
+        }, 200,
     );
 
     // Die roll, based on selected die
@@ -82,7 +112,7 @@ function dieRoll(chosenDie) {
                 answerText.innerText = rollTwentySide;
                 answerText.style.opacity = '1';
             };
-        }, 750,
+        }, dieRollRandomDelayed,
     );
     
     // Add result to history
@@ -104,9 +134,8 @@ function dieRoll(chosenDie) {
                 paragraph.style.opacity = '1';
             });
 
-        }, 1500,
+        }, dieRollRandomDelayed,
     );
-    
 };
 
 // Make height of .nav-wrap equal to .history
@@ -185,33 +214,14 @@ diceList.addEventListener('change', function() {
     
 });
 
-// function dieRoll(chosenDie) {
-//     answerText.style.opacity = '0';
+// Get random number with one decimal place, used for die roll timing
+function getRandomNumberOneDecimal(min, max) {
+    const random = Math.random() * (max - min) + min;
+    return parseFloat(random.toFixed(1));
+};
 
-//     if (chosenDie == "4-Sided") {
-//         answerText.innerText = '';
-//         var rollFourSide = getRandomNumber(1, 4);
-//         answerText.innerText = rollFourSide;
-//     };
-//     if (chosenDie == "6-Sided") {
-//         answerText.innerText = '';
-//         var rollSixSide = getRandomNumber(1, 6);
-//         answerText.innerText = rollSixSide;
-//     };
-//     if (chosenDie == "10-Sided") {
-//         answerText.innerText = '';
-//         var rollTenSide = getRandomNumber(1, 10);
-//         answerText.innerText = rollTenSide;
-//     };
-//     if (chosenDie == "12-Sided") {
-//         answerText.innerText = '';
-//         var rollTwelveSide = getRandomNumber(1, 12);
-//         answerText.innerText = rollTwelveSide;
-//     };
-//     if (chosenDie == "20-Sided") {
-//         answerText.innerText = '';
-//         var rollTwentySide = getRandomNumber(1, 20);
-//         answerText.innerText = rollTwentySide;
-//     };
-
-// };
+function dieScale() {
+    dice.forEach(function(dieImage) {
+        dieImage.style.scale = '1.2';
+    });
+};
