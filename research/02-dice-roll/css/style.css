@@ -97,7 +97,7 @@ body {
     position: absolute;
     max-width: 180px;
     max-height: 180px;
-    transition: rotate var(--dieroll-duration) ease-in-out, scale .2s ease-in-out;
+    transition: rotate var(--dieroll-duration) ease-in-out, scale .2s ease-in-out, opacity .2s ease-in-out;
     opacity: 0;
 }
 .inner .dice-container .die.active-die {
